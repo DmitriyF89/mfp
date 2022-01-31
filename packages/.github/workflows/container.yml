@@ -1,15 +1,12 @@
 name: deploy-container
 
-# what events we are watching
 on:
   push:
     branches:
       - master
-    # run workflow for changes inside of container only
     paths:
       - 'packages/container/**'
 
-# set executional environment to package/container
 defaults:
   run:
     working-directory: packages/container
@@ -23,7 +20,6 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      # Get access to AWS cli commands
       - uses: chrislennon/action-aws-cli@v1.1
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
         env:
