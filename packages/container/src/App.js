@@ -16,7 +16,6 @@ const generateClassName = createGenerateClassName({
 
 const App = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
-
   return (
     <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>

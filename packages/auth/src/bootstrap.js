@@ -5,7 +5,10 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 // startup function for our react App
-const mount = (el, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
+const mount = (
+  el,
+  { onNavigate, defaultHistory, initialPath, onSignIn } = {}
+) => {
   // add memory history in order to use it inside non-container apps.
   // we need to use Browser history only in main Host, to prevent race conditions of changing History
   const history =
