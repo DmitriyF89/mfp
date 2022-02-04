@@ -11,7 +11,6 @@ const mount = (el) => {
 // start in local environment, not inside MF Host
 if (process.env.NODE_ENV === 'development') {
   const devRoot = document.getElementById('_dashboard-dev-root');
-
   if (devRoot) {
     // Use browser history when running app in isolation
     mount(devRoot);
