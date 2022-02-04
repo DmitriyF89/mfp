@@ -10,14 +10,18 @@ const devConfig = {
     port: 8080,
     historyApiFallback: {
       // Allow use SPA history navigation
-      index: 'index.html',
+      index: '/index.html',
     },
+  },
+  output: {
+    publicPath: 'http://localhost:8080/',
   },
   plugins: [
     new ModuleFederationPlugin({
       name: 'Container',
       remotes: {
         marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+        auth: 'auth@http://localhost:8082/remoteEntry.js',
       },
       shared: packageJson.dependencies, // Convenient way to share all deps from package.json
     }),

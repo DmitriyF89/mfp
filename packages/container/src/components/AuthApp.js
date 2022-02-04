@@ -1,11 +1,11 @@
 import React from 'react';
-import { mount } from 'marketing/MarketingApp';
+import { mount } from 'auth/AuthApp';
 // we did this instead of exporting React Component to
 // get rid of coupling between container and marketing
 
 import { useHistory } from 'react-router-dom';
 
-const MarketingApp = () => {
+const AuthApp = ({ onSignIn }) => {
   // get history from closest Browser router (Container's Browser router)
   const history = useHistory();
 
@@ -24,7 +24,9 @@ const MarketingApp = () => {
                 history.push(nextPathname);
               }
             },
+            // Pass initial value to inner application's router
             initialPath: history.location,
+            onSignIn,
           });
 
           // make child app know about host navigation
@@ -35,4 +37,4 @@ const MarketingApp = () => {
   );
 };
 
-export default MarketingApp;
+export default AuthApp;
