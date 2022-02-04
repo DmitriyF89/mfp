@@ -13,6 +13,7 @@ const generateClassName = createGenerateClassName({
 });
 
 const App = ({ history, onSignIn }) => {
+  console.log('test rebuild');
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
